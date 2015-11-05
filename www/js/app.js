@@ -10,13 +10,17 @@
   function MarvelController(MarvelService){
     var vm = this;
     vm.char = {};
+    vm.changeChar = changeChar;
 
-    MarvelService.getCharacters()
-      .then(function(data){
-        var arr = data.data.data.results;
-        vm.char = arr[Math.floor(Math.random() * arr.length)];
-        console.log(vm.char);
-      });
+    function changeChar(){
+      MarvelService.getCharacters()
+        .then(function(data){
+          var arr = data.data.data.results;
+          vm.char = arr[Math.floor(Math.random() * arr.length)];
+          console.log(vm.char);
+        });
+    }
+
   }
 
   function MarvelService($http, $q, md5){
@@ -38,7 +42,8 @@
           params: {
             ts: ts,
             apikey: publicKey,
-            hash: hash
+            hash: hash,
+            limit: 50
           }
         })
         .then(def.resolve)

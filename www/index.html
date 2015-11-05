@@ -28,10 +28,13 @@
         <h1 class="title">IO Marvel</h1>
       </ion-header-bar>
       <ion-content>
-        <br>
-          <div class="button button-full button-dark">
+        <div class="row">
+          <br>
+          <button ng-click="vm.changeChar()" class="button button-full button-dark">
               <strong>Tu personaje del dia es:</strong>
-          </div>
+          </button>
+        </div>
+        <div class="row">
           <div ng-if="vm.char">
             <div><b>{{vm.char.name}}</b></div>
             <div>{{vm.char.desc}}</div>
@@ -39,6 +42,7 @@
               <img ng-src="{{vm.char.thumbnail.path}}.{{vm.char.thumbnail.extension}}"/>
             </div>
           </div>
+        </div>
       </ion-content>
       <ion-footer-bar align-title="left" class="bar-assertive">
         <h1 class="title"></h1>
