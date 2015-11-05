@@ -21,16 +21,17 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
   </head>
-  <body ng-app="starter">
-
+  <body ng-app="starter" ng-controller="MarvelController as vm">
     <ion-pane>
       <ion-header-bar class="bar-assertive">
         <h1 class="title">IO Marvel</h1>
       </ion-header-bar>
       <ion-content>
-        <div class="bar bar-header">
-          <h1 class="title">Tu personaje del dia es...</h1>
-        </div>
+        <br>
+          <button class="button button-full button-dark">Hoy tu personaje es...</button>
+          <div class="item item-image">
+             <img ng-src="">
+           </div>
       </ion-content>
       <ion-footer-bar align-title="left" class="bar-assertive">
         <h1 class="title"></h1>
