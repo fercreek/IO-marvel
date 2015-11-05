@@ -20,6 +20,7 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="lib/angular-md5/angular-md5.min.js"></script>
   </head>
   <body ng-app="starter" ng-controller="MarvelController as vm">
     <ion-pane>
@@ -28,10 +29,16 @@
       </ion-header-bar>
       <ion-content>
         <br>
-          <button class="button button-full button-dark">Hoy tu personaje es...</button>
-          <div class="item item-image">
-             <img ng-src="">
-           </div>
+          <div class="button button-full button-dark">
+              <strong>Tu personaje del dia es:</strong>
+          </div>
+          <div ng-if="vm.char">
+            <div><b>{{vm.char.name}}</b></div>
+            <div>{{vm.char.desc}}</div>
+            <div ng-if="vm.char.thumbnail" class="item item-image">
+              <img ng-src="{{vm.char.thumbnail.path}}.{{vm.char.thumbnail.extension}}"/>
+            </div>
+          </div>
       </ion-content>
       <ion-footer-bar align-title="left" class="bar-assertive">
         <h1 class="title"></h1>

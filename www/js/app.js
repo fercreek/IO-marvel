@@ -13,12 +13,15 @@
 
     MarvelService.getCharacters()
       .then(function(data){
+        var arr = data.data.data.results;
+        vm.char = arr[Math.floor(Math.random() * arr.length)];
+        console.log(vm.char);
       });
   }
 
   function MarvelService($http, $q, md5){
-    var publicKey = 'Your public key';
-    var privateKey = 'Your private Key';
+    var publicKey = '';
+    var privateKey = '';
     var ts = Date.now();
 
     var hash = md5.createHash(ts+privateKey+publicKey);
